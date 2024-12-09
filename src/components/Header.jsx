@@ -2,6 +2,7 @@ const Header = () => {
   return (
     <header className="header">
       <h1>TV Shows API</h1>
+    
     </header>
   );
 }

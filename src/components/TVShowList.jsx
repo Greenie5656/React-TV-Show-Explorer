@@ -3,16 +3,23 @@ import ShowCards from "./ShowCards";
 
 const TVShowList = ({ searchTerm }) => {
   const [shows, setShows] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+  
     fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`)
       .then((response) => {
         return response.json();
       })
       .then((returnedShows) => {
         setShows(returnedShows);
+        setIsLoading(false);
       });
   }, [searchTerm]);
+
+  if(isLoading) return <p>Loading</p>;
+  
 
   return (
     <>
