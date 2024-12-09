@@ -16,7 +16,6 @@ const TVShowSearch = ({ setSearchTerm }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>Search: </label>
         <input
           placeholder="Search TV shows..."
           type="text"

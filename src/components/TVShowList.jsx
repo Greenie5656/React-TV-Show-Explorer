@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ShowCards from "./ShowCards";
+import Lottie from "lottie-react";
+import loadingAnimation from "../assets/loadingAnimation.json";
 
 const TVShowList = ({ searchTerm }) => {
   const [shows, setShows] = useState([]);
@@ -7,7 +9,7 @@ const TVShowList = ({ searchTerm }) => {
 
   useEffect(() => {
     setIsLoading(true);
-  
+
     fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`)
       .then((response) => {
         return response.json();
@@ -18,8 +20,9 @@ const TVShowList = ({ searchTerm }) => {
       });
   }, [searchTerm]);
 
-  if(isLoading) return <p>Loading</p>;
-  
+  if (isLoading) {
+    return <Lottie animationData={loadingAnimation} />;
+  }
 
   return (
     <>
