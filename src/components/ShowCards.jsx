@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ShowCards = ({ show }) => {
+const ShowCards = ({ show, highestRating }) => {
   console.log(show);
 
   const [displayShows, setdisplayShows] = useState(false);
@@ -25,7 +25,11 @@ const ShowCards = ({ show }) => {
       {displayShows ? (
         <>
           {show.show.rating.average ? (
-            <p>Rating: {show.show.rating.average}</p>
+            <p>Rating: {show.show.rating.average}
+            {show.show.rating.average === highestRating && 
+              <span> (Highest Rated!)</span>
+            }
+            </p>
           ) : (
             <p>No Rating Available</p>
           )}

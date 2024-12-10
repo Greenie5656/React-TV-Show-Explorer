@@ -9,6 +9,11 @@ const TVShowList = ({ searchTerm }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+const highestRating = shows
+.map(show => show.show.rating.average)
+.filter(rating => rating !== null)
+.reduce((max, rating) => Math.max(max, rating), 0);
+
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
@@ -43,7 +48,7 @@ const TVShowList = ({ searchTerm }) => {
       {shows.map((show) => {
         return (
           <Format key={show.show.id}>
-            <ShowCards show={show} />
+            <ShowCards show={show} highestRating={highestRating} />
           </Format>
         );
       })}
