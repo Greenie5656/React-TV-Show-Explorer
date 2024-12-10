@@ -32,7 +32,7 @@ const TVShowList = ({ searchTerm }) => {
   }
 
   if (isError) {
-    return <p>Error Returning Data</p>;
+    return <p>Error Returning Data</p>
   }
 
   return (
