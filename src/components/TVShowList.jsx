@@ -31,20 +31,20 @@ const TVShowList = ({ searchTerm }) => {
     return <Lottie animationData={loadingAnimation} />;
   }
 
-  if (isError){
+  if (isError) {
     return <p>Error Returning Data</p>
   }
 
   return (
-      <ul className="tv-show-grid">
-        {shows.map((show) => {
-          return (
-            <Format key={show.show.id}>
-              <ShowCards show={show} />
-            </Format>
-          );
-        })}
-      </ul>
+    <ul className="tv-show-grid">
+      {shows.map((show) => {
+        return (
+          <Format key={show.show.id}>
+            <ShowCards show={show} />
+          </Format>
+        );
+      })}
+    </ul>
   );
 };
 
