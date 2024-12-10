@@ -21,6 +21,7 @@ const TVShowSearch = ({ setSearchTerm }) => {
           type="text"
           onChange={handleChange}
           value={searchInput}
+          className="search-input"
         ></input>
         <button>Submit</button>
       </form>

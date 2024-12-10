@@ -26,12 +26,13 @@ const TVShowList = ({ searchTerm }) => {
   }
 
   return (
-  
       <ul className="tv-show-grid">
         {shows.map((show) => {
-          return <Format key ={show.show.id}>  
-          <ShowCards show={show}/>
-          </Format>;
+          return (
+            <Format key={show.show.id}>
+              <ShowCards show={show} />
+            </Format>
+          );
         })}
       </ul>
   );
