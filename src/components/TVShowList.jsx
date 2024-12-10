@@ -30,6 +30,9 @@ const TVShowList = ({ searchTerm }) => {
   if (isLoading) {
     return <Lottie animationData={loadingAnimation} />;
   }
+  if (isError){
+    return <p>Error Returning Data</p>
+  }
 
   if (isError) {
     return <p>Error Returning Data</p>
