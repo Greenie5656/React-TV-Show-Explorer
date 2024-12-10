@@ -35,6 +35,11 @@ const ShowCards = ({ show }) => {
           ) : (
             <p>No Runtime Available</p>
           )}
+          {show.show.type ? (
+            <p>Type: {show.show.type}</p>
+          ) : (
+            <p>No Type Available</p>
+          )}
         </>
       ) : null}
     </>
