@@ -7,9 +7,11 @@ import Format from "./Format";
 const TVShowList = ({ searchTerm }) => {
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
+    setIsError(false);
 
     fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`)
       .then((response) => {
@@ -18,11 +20,18 @@ const TVShowList = ({ searchTerm }) => {
       .then((returnedShows) => {
         setShows(returnedShows);
         setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false)
+        setIsError(true)
       });
   }, [searchTerm]);
 
   if (isLoading) {
     return <Lottie animationData={loadingAnimation} />;
+  }
+  if (isError){
+    return <p>Error Returning Data</p>
   }
 
   return (
