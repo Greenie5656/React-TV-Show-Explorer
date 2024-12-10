@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ShowCards from "./ShowCards";
 import Lottie from "lottie-react";
 import loadingAnimation from "../assets/loadingAnimation.json";
+import Format from "./Format";
 
 const TVShowList = ({ searchTerm }) => {
   const [shows, setShows] = useState([]);
@@ -25,13 +26,14 @@ const TVShowList = ({ searchTerm }) => {
   }
 
   return (
-    <>
-      <ul>
+  
+      <ul className="tv-show-grid">
         {shows.map((show) => {
-          return <ShowCards show={show} key={show.show.id} />;
+          return <Format key ={show.show.id}>  
+          <ShowCards show={show}/>
+          </Format>;
         })}
       </ul>
-    </>
   );
 };
 
